@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="Narrative Visualization assignment">
+  <meta name="author" content="Pradeep Kumar Sharma">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/starter-template.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <title>WHO suicide Analysis</title>
+</head>
+
+<body>
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">WHO Suicide Data</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="suicideByCountry.html">Scene 1 - Suicide trend over years</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="suicideByCountry.html">Scene 2 - Suicide trends by gender</a>
+<!--          <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Scene 2 - Suicide trends by gender-->
+<!--            <span class="sr-only">(current)</span></a>-->
+        </li>
+        <li class="nav-item active">
+           <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Scene 3 - Suicide trends by Age group
+            <span class="sr-only">(current)</span></a>
+<!--          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Scene 3 - Suicide trends by Age group</a>-->
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- start of main container -->
+
+    <div class="page-header">
+      <h2>Suicide Over Years By Age Group</h2>
+    </div>
+    <div id="tooltip-alert" class="alert alert-info hide" role="alert" data-dismiss="alert">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+      <strong></strong> Tooltips and filters are available. Use your mouse to hover over any bars on the bar chart to
+      see its tooltip, and drill-down combobox to filter the information by state.
+    </div>
+    <div class="container">
+
+      <div class="col-lg-12">
+        <p class="lead">After looking that the most of the suicides are in the males we will try to find out another dimension
+          where the work can be done in a prticular country or world to reduce the number of suicides.For this now pick the age groups.
+          There are overall 6 age groups 15-24 years,25-34 years,35-54 years,5-14 years,55-74 years,75+ years.
+          We can see that the suicides are most common in 35-54 years age group in the world.The least number of suicides happen
+          in the 5-14 age groups and that is understandable as the kids are less suseptible to mental worries.
+        </p>
+        <p class="lead">
+          We should also be able to see the charts for the yearly trends in developed countries and how they are doing in terms
+          of the number of suicides based on the age by appying filters.The countries like Russia are improving while the trend is not good
+          for the country like USA. The 75+ agre group when filetered on the country shows a steep rise in suicides.It may be because of the
+          lonliness which might be tackled by more humane approach and empathy.
+        </p>
+      </div>
+
+      <select id="countries-list" onchange="onCountriesValueChange()">
+        <option selected value="">All</option>
+      </select>
+
+      <div id="plot-suicide-count-by-age-svg"></div>
+      <div class="col-lg-12">
+        <p class="lead">Based on the above we can conclude that the suicides are a common cause of concern for the world and
+          a lot of work needs to be done. We will be successful in our effort if we can find causes and narrow down the population
+          which is more prone to suicides.We can see that in developed countries this problem is more common between males.
+          The age group where most of suicides happen are 35-54 years but 75 + are also doing suicides which are increasing.
+          The help needs to be provided to these groups in order to make the world suicide free. The project can be extended to
+          include more data and find many other dimensions in data like education/poverty etc to find more specific values for the
+          specific countries.
+        </p>
+
+    </div>
+  </div> <!-- /end of main container -->
+  <div style="display: flex;  justify-content: center;">
+    <a href="suicideByGender.html">
+      <button type="button" class="btn btn-default btn-lg btn-primary">
+        Previous<i class="fa fa-chevron-left"></i>
+      </button></a>
+    <div class="col-lg-9"></div>
+    <a href="index.html">
+      <button type="button" class="btn btn-default btn-lg btn-primary">
+        <i class="fa fa-chevron-right"></i>Home
+      </button></a>
+
+    <footer class="footer   text-center">
+    <div class="container">
+      <p class="text-muted"></p>
+      <strong>Author : Pradeep kumar sharma</a></strong>
+    </div>
+  </footer>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src='https://d3js.org/d3.v5.min.js'></script>
+  <script src='lib/d3-tip.js'></script>
+    <script src='lib/d3-legend.js'></script>
+  <script src="lib/plotSuicideCountryByAgeGroup.js"></script>
+</body>
+
+</html>
